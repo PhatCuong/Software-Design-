@@ -1,0 +1,204 @@
+<html>
+  <head>
+    <title>Database Tables</title>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+    ></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/DumpAcademicYear.js"></script>
+    <script type="text/javascript" src="js/DumpClass.js"></script>
+    <script type="text/javascript" src="js/DumpFaculty.js"></script>
+    <script type="text/javascript" src="js/DumpFacultyInAcademicYear.js"></script>
+    <script type="text/javascript" src="js/DumpLecturer.js"></script>
+    <script type="text/javascript" src="js/DumpModule.js"></script>
+    <script type="text/javascript" src="js/DumpModuleInProgramInAcademicYear.js"></script>
+    <script type="text/javascript" src="js/DumpProgram.js"></script>
+    <script type="text/javascript" src="js/DumpProgramInFacultyInAcademicYear.js" ></script>
+    <script type="text/javascript" src="js/DumpSemester.js"></script>
+    <script type="text/javascript" src="js/DumpTeaching.js"></script>
+  </head>
+
+  <body>
+    <h3>Faculty in Academic year</h3>
+    <button class="button" id="hide1">Hide</button>
+    <button class="button" id="show1">Show</button>
+    <p id="facultyID"></p>
+    <script>
+      $(document).ready(function () {
+        $("#hide1").click(function () {
+          $("#facultyID").hide();
+        });
+        $("#show1").click(function () {
+          $("#facultyID").show();
+        });
+      });
+    </script>
+
+    <h3>Academic year</h3>
+    <button class="button" id="hide2">Hide</button>
+    <button class="button" id="show2">Show</button>
+    <p id="AYearID_2"></p>
+    <script>
+      $(document).ready(function () {
+        $("#hide2").click(function () {
+          $("#AYearID_2").hide();
+        });
+        $("#show2").click(function () {
+          $("#AYearID_2").show();
+        });
+      });
+    </script>
+
+    <h3>Semester</h3>
+    <button class="button" id="hide3">Hide</button>
+    <button class="button" id="show3">Show</button>
+    <p id="semesterID"></p>
+    <script>
+      $(document).ready(function () {
+        $("#hide3").click(function () {
+          $("#semesterID").hide();
+        });
+        $("#show3").click(function () {
+          $("#semesterID").show();
+        });
+      });
+    </script>
+
+    <h3>Faculty</h3>
+    <button class="button" id="hide4">Hide</button>
+    <button class="button" id="show4">Show</button>
+    <p id="facultyID_2"></p>
+    <script>
+      $(document).ready(function () {
+        $("#hide4").click(function () {
+          $("#facultyID_2").hide();
+        });
+        $("#show4").click(function () {
+          $("#facultyID_2").show();
+        });
+      });
+    </script>
+
+    <h3>Program</h3>
+    <button class="button" id="hide5">Hide</button>
+    <button class="button" id="show5">Show</button>
+    <p id="ProgramID"></p>
+    <script>
+      $(document).ready(function () {
+        $("#hide5").click(function () {
+          $("#ProgramID").hide();
+        });
+        $("#show5").click(function () {
+          $("#ProgramID").show();
+        });
+      });
+    </script>
+
+    <h3>Module</h3>
+    <button class="button" id="hide6">Hide</button>
+    <button class="button" id="show6">Show</button>
+    <p id="ModuleID"></p>
+    <script>
+      $(document).ready(function () {
+        $("#hide6").click(function () {
+          $("#ModuleID").hide();
+        });
+        $("#show6").click(function () {
+          $("#ModuleID").show();
+        });
+      });
+    </script>
+
+    <h3>Class</h3>
+    <button class="button" id="hide7">Hide</button>
+    <button class="button" id="show7">Show</button>
+    <p id="ClassID"></p>
+    <script>
+      $(document).ready(function () {
+        $("#hide7").click(function () {
+          $("#ClassID").hide();
+        });
+        $("#show7").click(function () {
+          $("#ClassID").show();
+        });
+      });
+    </script>
+
+    <!-- <h3>Questionnaire</h3> -->
+    <!-- <button class="button" id="hide8">Hide</button> -->
+    <!-- <button class="button" id="show8">Show</button> -->
+    <!-- <p id="QuestionaireID"> </p> -->
+    <!-- <script> -->
+    <!-- $(document).ready(function() -->
+    <!-- { -->
+    <!-- $('#hide8').click(function() -->
+    <!-- { -->
+    <!-- $('#QuestionaireID').hide(); -->
+    <!-- }); -->
+    <!-- $('#show8').click(function() -->
+    <!-- { -->
+    <!-- $('#QuestionaireID').show(); -->
+    <!-- }); -->
+    <!-- }); -->
+    <!-- </script> -->
+
+    <h3>Lecture</h3>
+    <button class="button" id="hide9">Hide</button>
+    <button class="button" id="show9">Show</button>
+    <p id="LecturerID"></p>
+    <script>
+      $(document).ready(function () {
+        $("#hide9").click(function () {
+          $("#LecturerID").hide();
+        });
+        $("#show9").click(function () {
+          $("#LecturerID").show();
+        });
+      });
+    </script>
+
+    <h3>Teaches</h3>
+    <button class="button" id="hide10">Hide</button>
+    <button class="button" id="show10">Show</button>
+    <p id="lecturerID_2"></p>
+    <script>
+      $(document).ready(function () {
+        $("#hide10").click(function () {
+          $("#lecturerID_2").hide();
+        });
+        $("#show10").click(function () {
+          $("#lecturerID_2").show();
+        });
+      });
+    </script>
+    <h3>Program In Faculty In Academic Year</h3>
+    <button class="button" id="hide11">Hide</button>
+    <button class="button" id="show11">Show</button>
+    <p id="PFAcademic"></p>
+    <script>
+      $(document).ready(function () {
+        $("#hide11").click(function () {
+          $("#PFAcademic").hide();
+        });
+        $("#show11").click(function () {
+          $("#PFAcademic").show();
+        });
+      });
+    </script>
+    <h3>Module In Program In Academic Year</h3>
+    <button class="button" id="hide12">Hide</button>
+    <button class="button" id="show12">Show</button>
+    <p id="MPAcademic"></p>
+    <script>
+      $(document).ready(function () {
+        $("#hide12").click(function () {
+          $("#MPAcademic").hide();
+        });
+        $("#show12").click(function () {
+          $("#MPAcademic").show();
+        });
+      });
+    </script>
+  </body>
+</html>

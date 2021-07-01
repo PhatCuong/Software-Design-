@@ -1,0 +1,24 @@
+@startuml
+
+actor User
+entity UI
+entity Application
+database Database
+
+User -> UI: go to Tables page
+UI -> Application: Dump Tables
+Application -> Database: Dump Tables
+Application <- Database: Tables
+UI <- Application: Tables
+UI -> UI: Display Class table with Semester IDs and Module IDs as options
+User -> UI: Enter ClassID, Size, SemesterID, ModuleID and click "Add"
+UI -> Application: Add(ClassID, Size, SemesterID, ModuleID)
+Application -> Application: CheckParametersAreValid(ClassID, Size, SemesterID, ModuleID)
+Application -> Database: AddClass(ClassID, Size, SemesterID, ModuleID)
+Database -> Database: Check ClassID is not yet in Database
+Database -> Database: Check SemesterID and ModuleID are in the database
+Application <- Database: Success
+UI <- Application: Success
+UI -> UI: Update table
+
+@enduml

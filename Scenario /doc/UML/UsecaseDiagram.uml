@@ -1,0 +1,36 @@
+@startuml
+
+skinparam linetype polyline
+
+actor Student
+actor Lecturer
+
+(Questionnaire page) as Q
+(Data Visualization page) as V
+(Tables page) as T
+
+Student -right-> Q
+Lecturer -right-> V
+Lecturer -right-> T
+T -[hidden]down- V
+
+Student -[hidden]down-Lecturer
+
+(Select Class and Lecturer) as Q1
+(Fill out Questionnaire for selected Class-Lecturer) as Q2
+Q -right-> Q1
+Q1 -right-> Q2
+
+usecase T1 as "View resources"
+usecase T2 as "Add/Delete resources"
+T -right-> T1
+T -right-> T2
+
+usecase V1 as "Select resources as filters
+--
+Graph answers the Questionnaires corresponding to the selected resources
+--
+View statistics for the Questionnaires corresponding to the selected resource"
+V -right-> V1
+
+@enduml

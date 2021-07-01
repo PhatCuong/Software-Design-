@@ -1,0 +1,21 @@
+# Custom SQL Error Codes
+
+- 200: valid/SUCCESS
+- 401: NON-EXISTENT/INVALID Academic Year id
+- 402: NON-EXISTENT/INVALID Semester id
+- 403: NON-EXISTENT/INVALID Faculty name
+- 404: NON-EXISTENT/INVALID Program name
+- 405: NON-EXISTENT/INVALID Module name
+- 406: NON-EXISTENT/INVALID Lecturer name
+- 407: NON-EXISTENT/INVALID Class id
+- 408: NON-EXISTENT/INVALID Questionnaire id
+- 413: NON-EXISTENT/INVALID Faculty id
+- 414: NON-EXISTENT/INVALID Program id
+- 415: NON-EXISTENT/INVALID Module id
+- 416: NON-EXISTENT/INVALID Lecturer id
+- 418: NON-EXISTENT/INVALID Questionnaire id
+- 420: NON-EXISTENT/INVALID Username
+- 427: NON-EXISTENT/INVALID Class Size
+- 490: duplication error
+- 491: account already exists
+- 495: delete violation

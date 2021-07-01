@@ -1,0 +1,19 @@
+header {
+  color: black;
+  font-family: Geneva;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+body {
+  background-color: #f4f4f4;
+  color: #555555;
+}
+
+class attendance {
+}
+.chartSize
+{
+	width: 800px;
+	height: 450px;
+}

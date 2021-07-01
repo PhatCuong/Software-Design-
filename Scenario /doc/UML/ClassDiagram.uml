@@ -1,0 +1,137 @@
+@startuml
+
+/' Layout '/
+
+skinparam linetype polyline
+
+/' Classes declarations '/
+
+class AcademicYear {
+  + ID
+  - startTime
+  - endTime
+}
+
+class Class {
+  + ID
+  - size
+  - Semester
+  - Module
+}
+
+class Faculty {
+  + ID
+}
+
+class FacultyInAcademicYear {
+  + ID
+  - Faculty
+  - AcademicYear
+}
+
+class Lecturer {
+  + ID
+  - User
+}
+
+class Module {
+  + ID
+}
+
+class ModuleInProgramInAcademicYear {
+  + ID
+  - Module
+  - ProgramInFacultyInAcademicYear
+}
+
+class Program {
+  + ID
+}
+
+class ProgramInFacultyInAcademicYear {
+  + ID
+  - Program
+  - FacultyInAcademicYear
+}
+
+class Questionnaire {
+  + ID
+  - Teaching
+}
+
+class Semester {
+  + ID
+  - AcademicYear
+  - startTime
+  - endTime
+}
+
+class Teaching {
+  + ID
+  - Class
+  - Teaching
+}
+
+class User
+class Credential
+
+/' Relationships '/
+
+AcademicYear "1" .. "1..*" Semester
+AcademicYear "1" .. "1..*" FacultyInAcademicYear
+Faculty "1" .. "1..*" FacultyInAcademicYear
+FacultyInAcademicYear "1" .. "1..*" ProgramInFacultyInAcademicYear
+Program "1" .. "1..*" ProgramInFacultyInAcademicYear
+ProgramInFacultyInAcademicYear "1" .. "1..*" ModuleInProgramInAcademicYear
+Module "1" .. "1..*" ModuleInProgramInAcademicYear
+Class "1" -- "1..*" ModuleInProgramInAcademicYear
+Class "1..*" -- "1" Semester
+Class "1" .. "1..*" Teaching
+Lecturer "1" .. "1..*" Teaching
+Teaching "1" -- "1..*" Questionnaire
+
+' Account relations '
+User "1" *-- "1" Credential
+User "1" <|.. "*" Lecturer: role of
+
+' Notes '
+
+note "have unique IDs among\ninstances of the same class" as uniqueID
+uniqueID .. AcademicYear
+uniqueID .. Semester
+uniqueID .. Class
+uniqueID .. Faculty
+uniqueID .. Module
+uniqueID .. Program
+uniqueID .. Questionnaire
+
+note top of AcademicYear
+  Instances of AcademicYear must
+  not have overlapping time periods
+end note
+
+note top of Semester
+  Instances of Semester must
+  not have overlapping time periods
+end note
+
+note top of Lecturer
+  Each User can have multiple
+  instances of the Lecturer role
+  but each 2 instances of the
+  same user must not have
+  overlapping time periods
+end note
+
+note top of ProgramInFacultyInAcademicYear
+  A Program cannot be in multiple
+  Faculties in the same Academic Year
+end note
+
+note top of Class
+  A Class must be connected to a Semester
+  in the same AcademicYear as said Class
+  (Class.AYear = Class.MPA.PFA.FA.AYear)
+end note
+
+@enduml

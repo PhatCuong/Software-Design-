@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+ 
+<html>
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+    crossorigin="anonymous"
+  ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js" integrity="sha512-BqNYFBAzGfZDnIWSAEGZSD/QFKeVxms2dIBPfw11gZubWwKUjEgmFUtUls8vZ6xTRZN/jaXGHD/ZaxD9+fDo0A==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jstat/1.9.4/jstat.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.0.0-beta.1/chartjs-plugin-datalabels.js" integrity="sha512-MGUxVO1NDBzjxkGlMetZtsWoIakrGsqna46oSSyCJf5rtcv+nrvTs+NxK/AHZI6NBuB5gea//dOb2yzqcJRT3A==" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/1.0.0/chartjs-plugin-annotation.js" integrity="sha512-ytUziiWguvXR6bNyMl8/wvDo1p+iu+rM98ZJKvdzY96QrdwDOEBDjKlPV6nVHN3j8N7hXxjiDHsiiqmPOhBweQ==" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/AllQuestionnaireChart.js"></script>
+  <script type="text/javascript" src="js/getInfoDropDown.js"></script>
+  <script type="text/javascript" src="js/getComments.js"></script>
+  <head>
+    <title>Data Visualization</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+ 
+  <body>
+    <header>QUESTIONNAIRE DATA VISUALIZATION</header>
+    <table>
+      <tr>
+        <td>Academic Year:</td>
+        <td>
+          <select id="AY">
+            <option value="">---Select---</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Semester:</td>
+        <td>
+          <select id="Semester">
+            <option value="">---Select---</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Faculty:</td>
+        <td>
+          <select id="Faculty">
+            <option value="">---Select---</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Program:</td>
+        <td>
+          <select id="Program">
+            <option value="">---Select---</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Class:</td>
+        <td>
+          <select id="Class">
+            <option value="">---Select---</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Module:</td>
+        <td>
+          <select id="Module">
+            <option value="">---Select---</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Lecturer:</td>
+        <td>
+          <select id="Lecturer">
+            <option value="">---Select---</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+ 
+    <br />
+    <button id="visualizeBtn">Visualize</button>
+    <br />
+    <div class="chartSize">
+      <canvas id="totalQuestionnaire"></canvas>
+    </div>
+    <br />
+    <p id="numberAnswer"></p>
+  </body>
+ 
+  <!-- Class Attendance -->
+  <body>
+    <h3>Percentage of respondents by class attendance</h3>
+    <div class="chartSize">
+      <canvas id="q0Chart"> </canvas>
+    </div>
+  </body>
+ 
+  <!-- Gender -->
+  <body>
+    <h3>Percentage of respondents by gender</h3>
+    <div class="chartSize">
+      <canvas id="genderChart"> </canvas>
+    </div>
+  </body>
+ 
+  <!-- Question 1 -->
+  <body>
+    <h3>1. The Module objectives have been clear to me.</h3>
+    <div class="chartSize">
+      <canvas id="q1Chart"> </canvas>
+    </div>
+  </body>
+ 
+  <!-- Question 2 -->
+  <body>
+    <h3>
+      2. The learning materials (e.g. course books, handouts, etc.) have been
+      sufficient and useful.
+    </h3>
+    <div class="chartSize">
+      <canvas id="q2Chart"> </canvas>
+    </div>
+  </body>
+ 
+  <!-- Question 3 -->
+  <body>
+    <h3>3. The content of the module has always been relevant.</h3>
+    <div class="chartSize">
+      <canvas id="q3Chart"> </canvas>
+    </div>
+  </body>
+ 
+  <!-- Question 4 -->
+  <body>
+    <h3>4. The lessons have been interesting</h3>
+    <div class="chartSize">
+      <canvas id="q4Chart"> </canvas>
+    </div>
+  </body>
+ 
+  <!-- Question 5 -->
+  <body>
+    <h3>
+      5. The module workload outside classroom such as homework, assignments,
+      exercises, exams preparation, etc. has been
+    </h3>
+    <div class="chartSize">
+      <canvas id="q5Chart"> </canvas>
+    </div>
+  </body>
+ 
+  <!-- Question 6 -->
+  <body>
+    <h3>6. The overall module workload has been</h3>
+    <div class="chartSize">
+      <canvas id="q6Chart"> </canvas>
+    </div>
+  </body>
+ 
+  <!-- Question 7 -->
+  <body>
+    <h3>7. The level of difficulty of the module has been</h3>
+    <div class="chartSize">
+      <canvas id="q7Chart"> </canvas>
+    </div>
+  </body>
+ 
+  <!-- Question 8 -->
+  <body>
+    <h3>8. Module contents have been presented understandably</h3>
+    <div class="chartSize">
+      <canvas id="q8Chart"> </canvas>
+    </div>
+  </body>
+ 
+  <!-- Question 9 -->
+  <body>
+    <h3>9. Various learning activities have been used to teach the content.</h3>
+    <div class="chartSize">
+      <canvas id="q9Chart"> </canvas>
+    </div>
+  </body>
+ 
+  <!-- Question 10 -->
+  <body>
+    <h3>
+      10. The learning activities have supported the intended learning outcomes.
+    </h3>
+    <div class="chartSize">
+      <canvas id="q10Chart"> </canvas>
+    </div>
+  </body>
+ 
+  <!-- Question 11 -->
+  <body>
+    <h3>
+      11. The assessment methods (tests, assignment, group work, etc.) are
+      appropriate.
+    </h3>
+    <div class="chartSize">
+      <canvas id="q11Chart"> </canvas>
+    </div>
+  </body>
+ 
+  <!-- Question 12 -->
+  <body>
+    <h3>
+      12. Students have been encouraged to apply critical thinking and logics to
+      better understand the course material.
+    </h3>
+    <div class="chartSize">
+      <canvas id="q12Chart"> </canvas>
+    </div>
+  </body>
+ 
+  <!-- Question 13 -->
+  <body>
+    <h3>
+      13. The lecturer has given feedback (about your answers or performance
+      inassignments, reports, presentations, etc.) and it was helpful.
+    </h3>
+    <div class="chartSize">
+      <canvas id="q13Chart"> </canvas>
+    </div>
+  </body>
+ 
+  <!-- Question 14 -->
+  <body>
+    <h3>
+      14. The language skills (English / German) of the lecturer were excellent.
+    </h3>
+    <div class="chartSize">
+      <canvas id="q14Chart"> </canvas>
+    </div>
+  </body>
+ 
+  <!-- Question 15 -->
+  <body>
+    <h3>15. The lecturer has listened to students’ ideas and contributions.</h3>
+    <div class="chartSize">
+      <canvas id="q15Chart"> </canvas>
+    </div>
+  </body>
+ 
+  <!-- Question 16 -->
+  <body>
+    <h3>16. The lecturer has encouraged discussion and questions in class.</h3>
+    <div class="chartSize">
+      <canvas id="q16Chart"> </canvas>
+    </div>
+  </body>
+ 
+  <!-- Question 17 -->
+  <body>
+    <h3>
+      17. The lecturer has offered consultation to individuals for academic
+      support.
+    </h3>
+    <div class="chartSize">
+      <canvas id="q17Chart"> </canvas>
+    </div>
+  </body>
+ 
+  <!-- Question 18 -->
+  <body>
+    <h3>
+      18. Additional comments about what you liked or disliked and suggestions
+      for further improvement
+    </h3>
+    <div class="q18" id="q18Comment">
+      <!-- <canvas id="q18Comment" width="200" height="200"> </canvas> -->
+    </div>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+@startuml
+
+actor User
+entity UI
+entity Application
+database Database
+
+User -> UI: go to the Questionnaire page
+User <- UI: lists available resource filters
+User -> UI: select resource filters
+User -> UI: click "Visualize"
+UI -> Application: Get Counts for answers for each question
+Application -> Database: GetCounts(question) for questions 0-17 and gender
+Application <- Database: counts for answers for each question
+UI <- Application: counts for answers for each question
+UI -> Application: Get Max Possible number of Questionnaire answers
+Application -> Database: Get Max Possible number of Questionnaire answers
+Application <- Database: max count
+UI <- Application: max count
+UI -> UI: are both Class and Lecturer selected? (assume yes)
+UI -> Application: getComments(ClassID, LecturerID)
+Application -> Database: getComments(ClassID, LecturerID)
+Application <- Database: comments
+UI <- Application: comments
+UI -> UI: graph charts and statistics and show comments
+
+@enduml

@@ -1,0 +1,32 @@
+@startuml
+
+actor User
+entity UI
+entity Application
+database Database
+
+User -> UI: go to the Questionnaire page
+User <- UI: lists available Academic Years
+User -> UI: select Academic Year
+User <- UI: lists available Semesters
+User -> UI: select Semester
+User <- UI: lists available Faculties
+User -> UI: select Faculty
+User <- UI: lists available Programs
+User -> UI: select Program
+User <- UI: lists available Modules
+User -> UI: select Module
+User <- UI: lists available Classes
+User -> UI: select Class
+User <- UI: lists available Semesters
+User -> UI: select Semester
+User -> UI: click "Submit"
+UI -> UI: check that all compulsory fields are filled
+UI -> Application: AddQuestionnaire() with answers
+Application -> Application: check that all answers are valid
+Database -> Database: check that ClassID and LecturerID are\nin the database and the number of Questionnaire\nanswers haven't reached the maximum allowed
+Application -> Database: AddQuestionnaire() with answers
+Application <- Database: returns success/error
+UI <- Application: reports success/error
+
+@enduml

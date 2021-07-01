@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Questionnaire</title>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+    ></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/getClassOptions.js"></script>
+    <script type="text/javascript" src="js/Submit.js"></script>
+    <style>
+      .container {
+        text-align: center;
+      }
+      #SubmitQuestionnaireID {
+        font-size: 25px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- <form id = "ClassIDSelect" action="/Questionnaire/api/class?action=getClassOptions" method="GET"> -->
+    <!-- <label for="ClassID">ClassID</label> -->
+	<table>
+    <tr>
+      <td>
+        Academic Year:
+        <select id="Ay">
+          <option value="-1">---Select---</option>
+        </select>
+      </td>
+    </tr>
+    <br>
+    <tr>
+      <td>
+        Semester:
+        <select id="SemesterID">
+          <option value="-1">---Select---</option>
+        </select>
+      </td>
+    </tr>
+      <tr>
+        <td>
+			Faculty:
+			<select id="FacultyName">
+				<option value="-1">---Select---</option>
+			</select>
+		</td>
+      </tr>
+      <tr>
+        <td>
+			Program:
+			<select id="ProgramName">
+				<option value="-1">---Select---</option>
+			</select>
+		</td>
+      </tr>
+      <tr>
+        <td>
+			Module:
+			<select id="ModuleName">
+				<option value="-1">---Select---</option>
+			</select>
+		</td>
+      </tr>
+	  <tr>
+		<td>
+			Class:
+			<select id="ClassID">
+				<option value="-1">---Select---</option>
+			</select>
+		</td>
+	  </tr>
+	  <tr>
+		<td>
+			Lecturer:
+			<select id="Username">
+				<option value="-1">---Select---</option>
+			</select>
+		</td>
+	  </tr>
+    </table>
+
+    <br /><br />
+
+    <form id="attendClass">
+      <label for="attendClassLabel"
+        >How often did you attend class for this module?
+      </label>
+      <select id="attendClassLabel" name="attendClassName">
+        <option value="-1">---Please select an option---</option>
+        <option value="1">Never</option>
+        <option value="2">Rarely</option>
+        <option value="3">Sometimes</option>
+        <option value="4">Often</option>
+        <option value="5">Always</option>
+      </select>
+    </form>
+
+    <br />
+
+    <form id="gender">
+      <label for="genderLabel">What is your gender: </label>
+      <select id="genderLabel" name="genderName">
+        <option value="-1">---Please select an option---</option>
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+        <option value="O">Other</option>
+      </select>
+    </form>
+
+    <br />
+
+    <h4>The following questions relate to ORGANIZATION and PLANNING</h4>
+
+    <form id="question1">
+      <label for="question1Label"
+        >1. The module objectives have been clear to me.</label
+      >
+      <select id="question1Label" name="question1Name">
+        <option value="-1">---Please select a rating---</option>
+        <option value="1">1 - Strongly AGREE</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 - Strongly DISAGREE</option>
+        <option value="0">Not applicable</option>
+      </select>
+    </form>
+
+    <br />
+
+    <form id="question2">
+      <label for="question2Label"
+        >2. The learning materials (e.g. course books, handouts, etc.) have been
+        sufficient and useful.</label
+      >
+      <select id="question2Label" name="question2Name">
+        <option value="-1">---Please select a rating---</option>
+        <option value="1">1 - Strongly AGREE</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 - Strongly DISAGREE</option>
+        <option value="0">Not applicable</option>
+      </select>
+    </form>
+
+    <br />
+
+    <form id="question3">
+      <label for="question3Label"
+        >3. The content of the module has always been relevant.</label
+      >
+      <select id="question3Label" name="question3Name">
+        <option value="-1">---Please select a rating---</option>
+        <option value="1">1 - Strongly AGREE</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 - Strongly DISAGREE</option>
+        <option value="0">Not applicable</option>
+      </select>
+    </form>
+
+    <br />
+
+    <form id="question4">
+      <label for="question4Label">4. The lessons have been interesting</label>
+      <select id="question4Label" name="question4Name">
+        <option value="-1">---Please select a rating---</option>
+        <option value="1">1 - Strongly AGREE</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 - Strongly DISAGREE</option>
+        <option value="0">Not applicable</option>
+      </select>
+    </form>
+
+    <br />
+
+    <h4>The following questions relate to MODULE WORKLOAD and DIFFICULTY</h4>
+
+    <form id="question5">
+      <label for="question5Label"
+        >5. The module workload outside classroom such as homework, assignments,
+        exercises, exams preparation, etc. has been.</label
+      >
+      <select id="question5Label" name="question5Name">
+        <option value="-1">---Please select a rating---</option>
+        <option value="1"><1 hour</option>
+        <option value="2">1 - 2</option>
+        <option value="3">2 - 3</option>
+        <option value="4">3 - 4</option>
+        <option value="5">>5 hours</option>
+      </select>
+    </form>
+
+    <br />
+
+    <form id="question6">
+      <label for="question6Label"
+        >6. The overall module workload has been.</label
+      >
+      <select id="question6Label" name="question6Name">
+        <option value="-1">---Please select a rating---</option>
+        <option value="1">1 - Too little</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 - Too much</option>
+      </select>
+    </form>
+
+    <br />
+
+    <form id="question7">
+      <label for="question7Label"
+        >7. The level of difficulty of the module has been
+      </label>
+      <select id="question7Label" name="question7Name">
+        <option value="-1">---Please select a rating---</option>
+        <option value="1">1 - Too low</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 - Too high</option>
+      </select>
+    </form>
+
+    <br />
+
+    <h4>The following questions relate to TEACHING and LEARNING</h4>
+
+    <form id="question8">
+      <label for="question8Label"
+        >8. Module contents have been presented understandably.</label
+      >
+      <select id="question8Label" name="question8Name">
+        <option value="-1">---Please select a rating---</option>
+        <option value="1">1 - Strongly DISAGREE</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 - Strongly AGREE</option>
+        <option value="0">Not applicable</option>
+      </select>
+    </form>
+
+    <br />
+
+    <form id="question9">
+      <label for="question9Label"
+        >9. Various learning activities have been used to teach the
+        content.</label
+      >
+      <select id="question9Label" name="question9Name">
+        <option value="-1">---Please select a rating---</option>
+        <option value="1">1 - Strongly DISAGREE</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 - Strongly AGREE</option>
+        <option value="0">Not applicable</option>
+      </select>
+    </form>
+
+    <br />
+
+    <form id="question10">
+      <label for="question10Label"
+        >10. The learning activities have supported the intended learning
+        outcomes.</label
+      >
+      <select id="question10Label" name="question10Name">
+        <option value="-1">---Please select a rating---</option>
+        <option value="1">1 - Strongly DISAGREE</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 - Strongly AGREE</option>
+        <option value="0">Not applicable</option>
+      </select>
+    </form>
+
+    <br />
+
+    <form id="question11">
+      <label for="question11Label"
+        >11. The assessment methods (tests, assignment, group work, etc.) are
+        appropriate.</label
+      >
+      <select id="question11Label" name="question11Name">
+        <option value="-1">---Please select a rating---</option>
+        <option value="1">1 - Strongly DISAGREE</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 - Strongly AGREE</option>
+        <option value="0">Not applicable</option>
+      </select>
+    </form>
+
+    <br />
+
+    <form id="question12">
+      <label for="question12Label"
+        >12. Students have been encouraged to apply critical thinking and logics
+        to better understand the course material.</label
+      >
+      <select id="question12Label" name="question12Name">
+        <option value="-1">---Please select a rating---</option>
+        <option value="1">1 - Strongly DISAGREE</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 - Strongly AGREE</option>
+        <option value="0">Not applicable</option>
+      </select>
+    </form>
+
+    <br />
+
+    <form id="question13">
+      <label for="question13Label"
+        >13. The lecturer has given feedback (about your answers or performance
+        in assignments, reports, presentations, etc.) and it was helpful.</label
+      >
+      <select id="question13Label" name="question13Name">
+        <option value="-1">---Please select a rating---</option>
+        <option value="1">1 - Strongly DISAGREE</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 - Strongly AGREE</option>
+        <option value="0">Not applicable</option>
+      </select>
+    </form>
+
+    <br />
+
+    <form id="question14">
+      <label for="question14Label"
+        >14. The language skills (English/German) of the lecturer was
+        excellent.</label
+      >
+      <select id="question14Label" name="question14Name">
+        <option value="-1">---Please select a rating---</option>
+        <option value="1">1 - Strongly DISAGREE</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 - Strongly AGREE</option>
+        <option value="0">Not applicable</option>
+      </select>
+    </form>
+
+    <br />
+
+    <form id="question15">
+      <label for="question15Label"
+        >15. The lecturer has listened to students' ideas and
+        contributions.</label
+      >
+      <select id="question15Label" name="question15Name">
+        <option value="-1">---Please select a rating---</option>
+        <option value="1">1 - Strongly DISAGREE</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 - Strongly AGREE</option>
+        <option value="0">Not applicable</option>
+      </select>
+    </form>
+
+    <br />
+
+    <form id="question16">
+      <label for="question16Label"
+        >16. The lecturer has encouraged discussion and questions in
+        class.</label
+      >
+      <select id="question16Label" name="question16Name">
+        <option value="-1">---Please select a rating---</option>
+        <option value="1">1 - Strongly DISAGREE</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 - Strongly AGREE</option>
+        <option value="0">Not applicable</option>
+      </select>
+    </form>
+
+    <br />
+
+    <form id="question17">
+      <label for="question17Label"
+        >17. The lecturer has offered consultation to individuals for academic
+        support.</label
+      >
+      <select id="question17Label" name="question17Name">
+        <option value="-1">---Please select a rating---</option>
+        <option value="1">1 - Strongly DISAGREE</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 - Strongly AGREE</option>
+        <option value="0">Not applicable</option>
+      </select>
+    </form>
+
+    <br />
+
+    <form id="question18">
+      <!-- <label for="question18Label">18. Additional comments about what you liked or disliked and suggestions for further improvement:</label> -->
+      <!-- <input type="text" id="quesntion18Input" name="question18Name" style="width: 200px; height:150px;"> -->
+      <textarea
+        name="question18Name"
+        form="question18"
+        rows="5"
+        cols="185"
+      ></textarea>
+    </form>
+    <div class="container">
+      <button id="SubmitQuestionnaireID" type="submit">Submit</button>
+    </div>
+  </body>
+</html>
